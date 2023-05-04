@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+|  <head>
+    <title>Reproductor de video</title>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.0/plyr.css" />
+    <style>
+      body {
+        background-color: black;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>TaroFlix
+    <h2>Mario Bros</h2>
+    <video id="player" controls preload="metadata" crossorigin>
+      <source src="mariobros.mp4" type="video/mp4" />
+    </video>
+    <progress id="progress-bar" max="1"></progress>
+    <script src="https://cdn.plyr.io/3.7.0/plyr.js"></script>
+    <script>
+      const player = new Plyr("#player");
+
+      const progressBar = document.querySelector('#progress-bar');
+      const video = document.querySelector('#player');
+
+      video.addEventListener('progress', () => {
+        const duration = video.duration;
+        if (duration > 0) {
+          for (let i = 0; i < video.buffered.length; i++) {
+            const start = video.buffered.start(i);
+            const end = video.buffered.end(i);
+            progressBar.value = end / duration;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
