@@ -2,6 +2,7 @@
 <html>
     <head>
         <head>
+            <link rel="icon" id="favicon" href="https://github.com/Taro0209/taro0209.github.io/blob/main/docsicon.png?raw=true">
             <style>
                 /* Style the account button */
                 #account-button {
@@ -187,11 +188,18 @@
                                 var overlay = document.getElementById("overlay");
                                 if (overlay.style.display === "none") {
                                     overlay.style.display = "block";
+                                    changeFavicon("path_to_fakeicon.jpg");
                                 } else {
                                     overlay.style.display = "none";
+                                    changeFavicon("path_to_default_icon.jpg");
                                 }
                             }
                         });
+
+                        function changeFavicon(iconPath) {
+                            var favicon = document.getElementById("favicon");
+                            favicon.href = iconPath;
+                        }
                     </script>
                     <br>
                     <br>
