@@ -182,25 +182,29 @@
                                 <img src="https://github.com/Taro0209/taro0209.github.io/raw/main/EmulatrixFavIcon_512x512.png" width="130" height="130">Emulador </a>&nbsp; <br>
                     </h3>
                     <br>
-                    <script>
-                        document.addEventListener("keydown", function(event) {
-                            if (event.keyCode === 53) { // Check if key code is 53, which represents the "5" key
-                                var overlay = document.getElementById("overlay");
-                                if (overlay.style.display === "none") {
-                                    overlay.style.display = "block";
-                                    changeFavicon("path_to_fakeicon.jpg");
-                                } else {
-                                    overlay.style.display = "none";
-                                    changeFavicon("path_to_default_icon.jpg");
-                                }
-                            }
-                        });
+                     <script>
+        var overlay = document.getElementById("overlay");
+        var isOverlayVisible = false;
 
-                        function changeFavicon(iconPath) {
-                            var favicon = document.getElementById("favicon");
-                            favicon.href = iconPath;
-                        }
-                    </script>
+        document.addEventListener("keydown", function(event) {
+            if (event.keyCode === 53) { // Check if key code is 53, which represents the "5" key
+                if (!isOverlayVisible) {
+                    overlay.style.display = "block";
+                    changeFavicon("https://github.com/Taro0209/taro0209.github.io/blob/main/docsicon.png?raw=true");
+                    isOverlayVisible = true;
+                } else {
+                    overlay.style.display = "none";
+                    changeFavicon("https://taro0209.github.io/favicon.ico");
+                    isOverlayVisible = false;
+                }
+            }
+        });
+
+        function changeFavicon(iconPath) {
+            var favicon = document.getElementById("favicon");
+            favicon.href = iconPath;
+        }
+    </script>
                     <br>
                     <br>
                     <br>
