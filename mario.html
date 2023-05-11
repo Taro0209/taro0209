@@ -133,17 +133,30 @@ background: linear-gradient(180deg, rgba(164,0,0,1) 0%, rgba(0,0,0,1) 100%);
                 <img src="https://github.com/Taro0209/taro0209.github.io/blob/main/docshide.png?raw=true" alt="My Docs">
             </div>
   <script>
-                        document.addEventListener("keydown", function(event) {
-                            if (event.keyCode === 53) { // Check if key code is 53, which represents the "5" key
-                                var overlay = document.getElementById("overlay");
-                                if (overlay.style.display === "none") {
-                                    overlay.style.display = "block";
-                                } else {
-                                    overlay.style.display = "none";
-                                }
-                            }
-                        });
-                    </script>
+   var overlay = document.getElementById("overlay");
+   var isOverlayVisible = false;
+   var originalTitle = document.title;
+   document.addEventListener("keydown", function(event) {
+     if (event.keyCode === 53) { // Check if key code is 53, which represents the "5" key
+       if (!isOverlayVisible) {
+         overlay.style.display = "block";
+         changeFaviconAndTitle("https://github.com/Taro0209/taro0209.github.io/blob/main/docsicon.png?raw=true", "Trabajo Comunitario");
+         isOverlayVisible = true;
+       } else {
+         overlay.style.display = "none";
+         changeFaviconAndTitle("https://taro0209.github.io/favicon.ico", "Taro unblocked games");
+         isOverlayVisible = false;
+       }
+     }
+   });
+
+   function changeFaviconAndTitle(iconPath, title) {
+     var favicon = document.getElementById("favicon");
+     var tabTitle = document.getElementById("tabTitle");
+     favicon.href = iconPath;
+     tabTitle.innerHTML = title;
+   }
+ </script>
   
 </body>
   
