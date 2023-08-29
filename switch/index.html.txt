@@ -1,1 +1,0 @@
-<iframe src="https://interstellar.hop.sh/" width="1535" height="734" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>
